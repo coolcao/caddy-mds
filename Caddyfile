@@ -1,0 +1,26 @@
+localhost:8089
+root ./
+browse /articles ./resources/templates/browse.html
+log log.log
+errors errors.log
+markdown / {
+	ext    .md    .markdown
+	css    /resources/css.css
+	template /resources/templates/blog.html
+}
+git git@github.com:coolcao/blogs.git articles {
+	branch master
+	key ~/.ssh/id_rsa
+	hook /hooks
+	hook_type github
+}
+git git@git.coding.net:coolcao/caddy-blogs.git . {
+	branch master
+	key ~/.ssh/id_rsa
+	hook /update
+	hook_type generic
+}
+rewrite / /articles
+rewrite /articles/.gitignore /articles
+rewrite /articles/.git/ /articles
+rewrite /articles/.git/* /articles
