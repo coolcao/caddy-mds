@@ -14,12 +14,7 @@ git git@github.com:coolcao/blogs.git articles {
 	hook /hooks
 	hook_type github
 }
-git git@git.coding.net:coolcao/caddy-blogs.git . {
-	branch master
-	key ~/.ssh/id_rsa
-	hook /update
-	hook_type generic
-}
+
 rewrite / /articles
 rewrite /articles/.gitignore /articles
 rewrite /articles/.git/ /articles
