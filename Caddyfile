@@ -1,4 +1,4 @@
-localhost:8089
+:80
 root ./
 browse /articles ./resources/templates/browse.html
 log log.log
